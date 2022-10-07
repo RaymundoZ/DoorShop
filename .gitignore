@@ -1,3 +1,7 @@
 .idea
+frontend
+node_modules
 target
-**.iml
+*.iml
+*.ts
+*.json
