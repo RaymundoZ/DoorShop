@@ -18,6 +18,9 @@ public class ProductEntity implements BaseEntity, DtoConvertable<ProductResponse
     @Column(name = "id")
     private UUID id;
 
+    @Column(name = "name")
+    private String name;
+
     @Column(name = "description")
     private String description;
 
@@ -36,6 +39,6 @@ public class ProductEntity implements BaseEntity, DtoConvertable<ProductResponse
 
     @Override
     public ProductResponse toDto() {
-        return new ProductResponse(description, color, price, image);
+        return new ProductResponse(name, description, color, price, image);
     }
 }

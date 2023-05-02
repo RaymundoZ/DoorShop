@@ -2,8 +2,10 @@ package com.raymundo.doorshop.validation;
 
 import com.raymundo.doorshop.dto.request.RegisterRequest;
 import com.raymundo.doorshop.entity.UserEntity;
+import com.raymundo.doorshop.exception.UserAlreadyExistException;
 import com.raymundo.doorshop.repository.UserRepository;
 import lombok.AllArgsConstructor;
+import lombok.SneakyThrows;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
@@ -21,12 +23,13 @@ public class RegisterValidator implements Validator {
         return clazz.equals(RegisterRequest.class);
     }
 
+    @SneakyThrows
     @Override
     public void validate(Object target, Errors errors) {
         if (!supports(target.getClass())) return;
         RegisterRequest registerRequest = (RegisterRequest) target;
         Optional<UserEntity> optional = userRepository.findByUsername(registerRequest.username());
         if (optional.isPresent())
-            errors.rejectValue("username", "", "Username is already in use");
+            throw new UserAlreadyExistException(registerRequest.username());
     }
 }

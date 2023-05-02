@@ -25,13 +25,13 @@ public class AuthController {
 
     @PostMapping(value = "/register")
     public ResponseEntity<UserResponse> register(@Valid @RequestBody RegisterRequest registerRequest, BindingResult bindingResult) {
-        return ResponseEntity.ok(authService.register(registerRequest, bindingResult));
+        return ResponseEntity.ok(authService.register(registerRequest));
     }
 
     @PostMapping(value = "/login")
     public ResponseEntity<UserResponse> login(@Valid @RequestBody LoginRequest loginRequest, BindingResult bindingResult, HttpServletRequest request,
                                               HttpServletResponse response) {
-        return ResponseEntity.ok(authService.login(loginRequest, bindingResult, request, response));
+        return ResponseEntity.ok(authService.login(loginRequest, request, response));
     }
 
     @PostMapping(value = "/logout")

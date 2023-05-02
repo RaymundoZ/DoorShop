@@ -37,8 +37,8 @@ public class AppConfig {
                 .anonymous(AbstractHttpConfigurer::disable)
                 .sessionManagement(session -> session.maximumSessions(1))
                 .authorizeHttpRequests(matcher -> {
-                    matcher.requestMatchers("/auth/*").permitAll();
-                    matcher.requestMatchers("/product/*").hasAnyAuthority(Role.USER.name(), Role.ADMIN.name());
+                    matcher.requestMatchers("/auth/**").permitAll();
+                    matcher.requestMatchers("/product/**").hasAnyAuthority(Role.USER.name(), Role.ADMIN.name());
                 })
                 .build();
     }

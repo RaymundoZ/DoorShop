@@ -40,4 +40,16 @@ public class GlobalExceptionHandler {
         return ResponseEntity.badRequest().body(errorResponse);
     }
 
+    @ExceptionHandler(value = ProductNotFoundException.class)
+    private ResponseEntity<ErrorResponse> productNotFoundExceptionHandler(ProductNotFoundException e) {
+        ErrorResponse errorResponse = new ErrorResponse(List.of(e.getMessage()), new Date());
+        return ResponseEntity.badRequest().body(errorResponse);
+    }
+
+    @ExceptionHandler(value = UserAlreadyExistException.class)
+    private ResponseEntity<ErrorResponse> usernameAlreadyExistExceptionHandler(UserAlreadyExistException e) {
+        ErrorResponse errorResponse = new ErrorResponse(List.of(e.getMessage()), new Date());
+        return ResponseEntity.badRequest().body(errorResponse);
+    }
+
 }

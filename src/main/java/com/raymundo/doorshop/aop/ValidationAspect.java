@@ -2,6 +2,7 @@ package com.raymundo.doorshop.aop;
 
 import com.raymundo.doorshop.dto.BaseDto;
 import com.raymundo.doorshop.exception.ValidationException;
+import com.raymundo.doorshop.validation.ProductValidator;
 import com.raymundo.doorshop.validation.RegisterValidator;
 import lombok.AllArgsConstructor;
 import org.aspectj.lang.JoinPoint;
@@ -20,6 +21,7 @@ import java.util.stream.Collectors;
 public class ValidationAspect {
 
     private RegisterValidator registerValidator;
+    private ProductValidator productValidator;
 
     @Pointcut(value = "execution(* com.raymundo.doorshop.controller..*(..))")
     public void controllerPointcut() {
@@ -49,9 +51,10 @@ public class ValidationAspect {
     }
 
     private void validate(BaseDto baseDto, BindingResult bindingResult) throws ValidationException {
-        registerValidator.validate(baseDto, bindingResult);
         if (bindingResult.hasErrors())
             throw new ValidationException(bindingResult.getAllErrors().stream().map(ObjectError::getDefaultMessage).collect(Collectors.toList()));
+        registerValidator.validate(baseDto, bindingResult);
+        productValidator.validate(baseDto, bindingResult);
     }
 
 }

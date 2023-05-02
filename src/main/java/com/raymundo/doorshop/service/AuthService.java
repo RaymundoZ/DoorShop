@@ -20,7 +20,6 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.security.web.context.SecurityContextRepository;
 import org.springframework.stereotype.Component;
-import org.springframework.validation.BindingResult;
 
 @Component
 @AllArgsConstructor
@@ -32,7 +31,7 @@ public class AuthService {
     private SecurityContextRepository securityContextRepository;
     private SecurityContextHolderStrategy securityContextHolderStrategy;
 
-    public UserResponse register(RegisterRequest registerRequest, BindingResult bindingResult) {
+    public UserResponse register(RegisterRequest registerRequest) {
         UserEntity user = new UserEntity();
         user.setUsername(registerRequest.username());
         user.setPassword(passwordEncoder.encode(registerRequest.password()));
@@ -41,7 +40,7 @@ public class AuthService {
         return user.toDto();
     }
 
-    public UserResponse login(LoginRequest loginRequest, BindingResult bindingResult, HttpServletRequest request, HttpServletResponse response) {
+    public UserResponse login(LoginRequest loginRequest, HttpServletRequest request, HttpServletResponse response) {
         UsernamePasswordAuthenticationToken token = UsernamePasswordAuthenticationToken.unauthenticated(loginRequest.username(), loginRequest.password());
         WebAuthenticationDetailsSource webAuthenticationDetailsSource = new WebAuthenticationDetailsSource();
         token.setDetails(webAuthenticationDetailsSource.buildDetails(request));
