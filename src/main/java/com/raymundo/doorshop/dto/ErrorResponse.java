@@ -1,7 +1,6 @@
-package com.raymundo.doorshop.dto.response;
+package com.raymundo.doorshop.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.raymundo.doorshop.dto.BaseDto;
 
 import java.util.Date;
 import java.util.List;

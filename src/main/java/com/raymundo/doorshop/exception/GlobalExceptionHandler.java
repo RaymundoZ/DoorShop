@@ -1,6 +1,6 @@
 package com.raymundo.doorshop.exception;
 
-import com.raymundo.doorshop.dto.response.ErrorResponse;
+import com.raymundo.doorshop.dto.ErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;

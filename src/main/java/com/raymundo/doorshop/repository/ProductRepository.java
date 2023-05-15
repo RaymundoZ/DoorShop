@@ -11,5 +11,4 @@ import java.util.UUID;
 public interface ProductRepository extends JpaRepository<ProductEntity, UUID> {
 
     Optional<ProductEntity> findAllByNameIsContainingIgnoreCase(String name);
-
 }

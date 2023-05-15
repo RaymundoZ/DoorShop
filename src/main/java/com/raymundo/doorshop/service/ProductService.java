@@ -1,6 +1,6 @@
 package com.raymundo.doorshop.service;
 
-import com.raymundo.doorshop.dto.response.ProductResponse;
+import com.raymundo.doorshop.dto.product.response.ProductResponse;
 import com.raymundo.doorshop.entity.ProductEntity;
 import com.raymundo.doorshop.repository.ProductRepository;
 import lombok.AllArgsConstructor;
@@ -29,8 +29,8 @@ public class ProductService {
         return product.toDto();
     }
 
-    public ProductResponse removeProduct(String id) {
-        ProductEntity product = productRepository.findById(UUID.fromString(id)).get();
+    public ProductResponse removeProduct(UUID id) {
+        ProductEntity product = productRepository.findById(id).get();
         productRepository.delete(product);
         return product.toDto();
     }

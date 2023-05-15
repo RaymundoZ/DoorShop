@@ -1,6 +1,6 @@
 package com.raymundo.doorshop.validation;
 
-import com.raymundo.doorshop.dto.request.RegisterRequest;
+import com.raymundo.doorshop.dto.auth.request.RegisterRequest;
 import com.raymundo.doorshop.entity.UserEntity;
 import com.raymundo.doorshop.exception.UserAlreadyExistException;
 import com.raymundo.doorshop.repository.UserRepository;

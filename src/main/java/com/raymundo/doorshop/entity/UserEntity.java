@@ -1,6 +1,6 @@
 package com.raymundo.doorshop.entity;
 
-import com.raymundo.doorshop.dto.response.UserResponse;
+import com.raymundo.doorshop.dto.auth.response.UserResponse;
 import com.raymundo.doorshop.util.DtoConvertable;
 import com.raymundo.doorshop.util.Role;
 import jakarta.persistence.*;
@@ -36,9 +36,8 @@ public class UserEntity implements BaseEntity, UserDetails, DtoConvertable<UserR
     @Column(name = "role")
     private Role role;
 
-    @OneToOne
-    @JoinColumn(name = "shopping_cart_id")
-    private ShoppingCartEntity shoppingCart;
+    @OneToMany(mappedBy = "user")
+    private List<FavouriteEntity> favourites;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

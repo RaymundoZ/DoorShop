@@ -1,11 +1,12 @@
 package com.raymundo.doorshop.entity;
 
-import com.raymundo.doorshop.dto.response.ProductResponse;
+import com.raymundo.doorshop.dto.product.response.ProductResponse;
 import com.raymundo.doorshop.util.DtoConvertable;
 import jakarta.persistence.*;
 import lombok.Data;
 
 import java.net.URI;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -33,9 +34,8 @@ public class ProductEntity implements BaseEntity, DtoConvertable<ProductResponse
     @Column(name = "image")
     private URI image;
 
-    @ManyToOne
-    @JoinColumn(name = "shopping_cart_id")
-    private ShoppingCartEntity shoppingCart;
+    @OneToMany(mappedBy = "product")
+    private List<FavouriteEntity> favourites;
 
     @Override
     public ProductResponse toDto() {

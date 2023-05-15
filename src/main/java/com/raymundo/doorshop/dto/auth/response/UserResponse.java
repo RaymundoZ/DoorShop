@@ -1,4 +1,4 @@
-package com.raymundo.doorshop.dto.response;
+package com.raymundo.doorshop.dto.auth.response;
 
 import com.raymundo.doorshop.dto.BaseDto;
 import com.raymundo.doorshop.util.Role;

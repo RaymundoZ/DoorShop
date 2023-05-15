@@ -1,4 +1,4 @@
-package com.raymundo.doorshop.dto.request;
+package com.raymundo.doorshop.dto.auth.request;
 
 import com.raymundo.doorshop.dto.BaseDto;
 import jakarta.validation.constraints.NotEmpty;

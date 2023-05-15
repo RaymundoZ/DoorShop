@@ -1,4 +1,4 @@
-package com.raymundo.doorshop.dto.request;
+package com.raymundo.doorshop.dto.product.request;
 
 import com.raymundo.doorshop.dto.BaseDto;
 import com.raymundo.doorshop.entity.ProductEntity;

@@ -1,8 +1,8 @@
 package com.raymundo.doorshop.service;
 
-import com.raymundo.doorshop.dto.request.LoginRequest;
-import com.raymundo.doorshop.dto.request.RegisterRequest;
-import com.raymundo.doorshop.dto.response.UserResponse;
+import com.raymundo.doorshop.dto.auth.request.LoginRequest;
+import com.raymundo.doorshop.dto.auth.request.RegisterRequest;
+import com.raymundo.doorshop.dto.auth.response.UserResponse;
 import com.raymundo.doorshop.entity.UserEntity;
 import com.raymundo.doorshop.exception.LogoutException;
 import com.raymundo.doorshop.repository.UserRepository;

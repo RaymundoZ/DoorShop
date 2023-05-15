@@ -1,9 +1,9 @@
 package com.raymundo.doorshop.controller;
 
-import com.raymundo.doorshop.dto.request.ProductId;
-import com.raymundo.doorshop.dto.request.ProductParamName;
-import com.raymundo.doorshop.dto.request.ProductRequest;
-import com.raymundo.doorshop.dto.response.ProductResponse;
+import com.raymundo.doorshop.dto.product.request.ProductId;
+import com.raymundo.doorshop.dto.product.request.ProductParamName;
+import com.raymundo.doorshop.dto.product.request.ProductRequest;
+import com.raymundo.doorshop.dto.product.response.ProductResponse;
 import com.raymundo.doorshop.service.ProductService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
@@ -12,6 +12,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping(value = "/product")
@@ -37,7 +38,7 @@ public class ProductController {
 
     @DeleteMapping(value = "/remove")
     public ResponseEntity<ProductResponse> removeProduct(@Valid @RequestBody ProductId productId, BindingResult bindingResult) {
-        return ResponseEntity.ok(productService.removeProduct(productId.id()));
+        return ResponseEntity.ok(productService.removeProduct(UUID.fromString(productId.id())));
     }
 
 }

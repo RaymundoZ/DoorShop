@@ -1,4 +1,4 @@
-package com.raymundo.doorshop.dto.response;
+package com.raymundo.doorshop.dto.product.response;
 
 import com.raymundo.doorshop.dto.BaseDto;
 

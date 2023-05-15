@@ -1,6 +1,6 @@
 package com.raymundo.doorshop.validation;
 
-import com.raymundo.doorshop.dto.request.ProductId;
+import com.raymundo.doorshop.dto.product.request.ProductId;
 import com.raymundo.doorshop.entity.ProductEntity;
 import com.raymundo.doorshop.exception.ProductNotFoundException;
 import com.raymundo.doorshop.repository.ProductRepository;
